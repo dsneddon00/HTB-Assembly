@@ -14,3 +14,9 @@ ld -o example example.o
 ```
 ./assembler.sh
 ```
+
+## Disassembly
+```
+objdump -M intel -d example
+objdump -sj .data example
+```
