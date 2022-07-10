@@ -1,5 +1,5 @@
 # HTB-Assembly
-
+This repo contains my class work and projects with the Assembly Module of Hack the Box Academy.
 ## Assembly
 
 ### Manually
