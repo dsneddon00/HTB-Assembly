@@ -12,5 +12,5 @@ fibLoop:
 	add rax, rbx ; get next next number of fib sequence (E.G. 0 + 1 = 1, 1 + 1 = 2, 1 + 2 = 3, ect.)
 	; also consider that the result is stored in rax, so 0, 1 will become 1, 1)
 	xchg rax, rbx ; swap the two values to put the higher value in rbx
-	loop fibLoop
+	jmp fibLoop
 
