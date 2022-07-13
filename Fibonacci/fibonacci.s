@@ -5,7 +5,7 @@ section .bss
 	userInput resb 1
 
 section .data
-	message db "Please input max Fibonacci Number: ", 0x0a ; 0x0a is the new line character
+	message db "Input Max Fib:", 0x0a ; 0x0a is the new line character
 	outputFmt db "%d", 0x0a, 0x00 ; %d prints out an integer, 0x0a is \n, and 0x00 is a null character for terminating printf
 	inputFmt db "%d", 0x00
 
@@ -21,7 +21,7 @@ printLabel:
 	mov rax, 1 ; rax: syscall 1
 	mov rdi, 1 ; using 1 for stdout
 	mov rsi, message ; pointing to message from .data
-	mov rdx, 20 ; print length of 20 bytes
+	mov rdx, 15 ; print length of 15 bytes
 	syscall ; executes the standard out
 	ret
 
