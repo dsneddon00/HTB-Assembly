@@ -2,11 +2,11 @@ global _start
 
 section .text
 
-_start: ; the folllowing is pulled from using the command "objdump -M intel -d Assessment/loaded_shellcode" on the loaded_shellcode binary provided on HTB Academy. also worth noting that movabs is translated to mov
 
-	mov rax, 0xa284ee5c7cde4bd7
+_start:
+	mov rax,0xa284ee5c7cde4bd7
 	push rax
-	mov rax, 0x935add110510849a
+	mov rax,0x935add110510849a
 	push rax
 	mov rax,0x10b29a9dab697500
 	push rax
@@ -33,17 +33,9 @@ _start: ; the folllowing is pulled from using the command "objdump -M intel -d A
 	mov rax,0x69751244059aa2a3
 	push rax
 	mov rbx,0x2144d2144d2144d2
-	mov rcx, 14 ; there are 14 sets of bytes moving into rax, found by 'objdump -M intel -d loaded_shellcode | grep "push   rax" | wc -l'
-	lea rdx, [rsp] ; load an address pointing to a value
-
+	mov rcx, 14 ; set count of flag values
+	lea rdx, [rsp] ; store contents of rsp in rdx
 looper:
-	;lea rdx, [rsp]
-	xor [rdx], rbx
-	add rdx, 8
+	xor [rdx], rbx ; xor the flag
+	add rdx, 8 ; move 8 bytes on the stack to get flag
 	loop looper
-;	ret
-
-;exit:
-;	mov rax, 60
-;	mov rdi, 0
-;	syscall
